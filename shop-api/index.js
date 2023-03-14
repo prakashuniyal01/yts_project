@@ -40,4 +40,4 @@ mongoose.connect(process.env.DB_URI)
 // M-> Model (schemas) , V -> View (but the routes, endpoints), C -> Controllers.
 // databases -> tables structure (columns, setting some rules, checks) -> schemas.
 // view -> define all the request and endpoints.
-// controllers -> controls the actions on any request.
+// controllers -> controls the actions on any request.   
