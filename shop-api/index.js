@@ -9,8 +9,15 @@ const mongoose = require("mongoose");
 const productRouter = require('./src/routes/products.routes.js')
 
 const app = express();
+// -> middelware :  mehndi, haldi, sagai, <shaadi>, vidai, shoes churai, honeymooon.
 
-app.use(cors());
+
+app.use(cors()); // middleware.
+
+// CORS - Cross origin resource sharing.
+// 1 girlfriend having multiple boyfriends.
+// 1 boyfriend having multiple girlfriend.
+// -> it enables retrival of information from req.  eg: req.params? req.body.name?
 app.use(bodyParser.json());
 
 app.get('/', (req, res) => {
@@ -21,7 +28,7 @@ app.get('/', (req, res) => {
 
 app.use('/products', productRouter);
 
-const PORT = process.env.PORT || 8001;
+const PORT = process.env.PORT || 8080;
 
 app.listen(PORT, () => {
     console.log(`Server Started On port http://localhost:${PORT}`)
@@ -40,4 +47,4 @@ mongoose.connect(process.env.DB_URI)
 // M-> Model (schemas) , V -> View (but the routes, endpoints), C -> Controllers.
 // databases -> tables structure (columns, setting some rules, checks) -> schemas.
 // view -> define all the request and endpoints.
-// controllers -> controls the actions on any request.   
+// controllers -> controls the actions on any request.
