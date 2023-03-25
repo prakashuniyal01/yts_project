@@ -6,7 +6,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const mongoose = require("mongoose");
 
-const productRouter = require('./src/routes/products.routes.js')
+// const productRouter = require('./src/routes/products.routes.js')
 
 const app = express();
 // -> middelware :  mehndi, haldi, sagai, <shaadi>, vidai, shoes churai, honeymooon.
@@ -26,7 +26,7 @@ app.get('/', (req, res) => {
     })
 })
 
-app.use('/products', productRouter);
+// app.use('/products', productRouter);
 
 const PORT = process.env.PORT || 8080;
 
@@ -36,15 +36,10 @@ app.listen(PORT, () => {
 
 mongoose.connect(process.env.DB_URI)
 .then(() => {
-    console.log("DB connected successfully.")
+    // console.log(`DB connected successfully.${DB_URI}`)
+    console.log("mongo db is connected successfully");
 }).catch(err => {
     console.error("DB connection failed.")
     console.error(err)
     process.exit(1) // kill the server
 });
-
-// MVC architecture
-// M-> Model (schemas) , V -> View (but the routes, endpoints), C -> Controllers.
-// databases -> tables structure (columns, setting some rules, checks) -> schemas.
-// view -> define all the request and endpoints.
-// controllers -> controls the actions on any request.
