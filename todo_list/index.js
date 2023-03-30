@@ -6,9 +6,9 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const mongoose = require("mongoose");
 
-// const productRouter = require('./src/routes/products.routes.js')
 
 const app = express();
+const todoRouter = require('./src/routes/todo.routes')
 // -> middelware :  mehndi, haldi, sagai, <shaadi>, vidai, shoes churai, honeymooon.
 
 
@@ -19,6 +19,8 @@ app.use(cors()); // middleware.
 // 1 boyfriend having multiple girlfriend.
 // -> it enables retrival of information from req.  eg: req.params? req.body.name?
 app.use(bodyParser.json());
+
+app.use('/api/todo', todoRouter)
 
 app.get('/', (req, res) => {
     return res.send({
